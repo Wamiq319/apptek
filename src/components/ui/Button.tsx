@@ -1,10 +1,11 @@
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "green";
   size?: "small" | "medium" | "large";
   children: React.ReactNode;
   className?: string;
+  rounded?: "sm" | "md" | "lg" | "full"; // new prop
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -12,10 +13,11 @@ export const Button: React.FC<ButtonProps> = ({
   size = "medium",
   children,
   className = "",
+  rounded = "md",
   ...props
 }) => {
   const base =
-    "rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
 
   const variants: Record<string, string> = {
     primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
@@ -23,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-300",
     outline:
       "bg-transparent text-blue-600 border border-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+    green: "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500",
   };
 
   const sizes: Record<string, string> = {
@@ -31,8 +34,14 @@ export const Button: React.FC<ButtonProps> = ({
     large: "px-6 py-3 text-lg",
   };
 
-  // Combine classes manually
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+  const roundedClasses: Record<string, string> = {
+    sm: "rounded",
+    md: "rounded-md",
+    lg: "rounded-lg",
+    full: "rounded-full",
+  };
+
+  const classes = `${base} ${variants[variant]} ${sizes[size]} ${roundedClasses[rounded]} ${className}`;
 
   return (
     <button className={classes} {...props}>

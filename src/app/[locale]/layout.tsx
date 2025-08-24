@@ -1,32 +1,42 @@
-import "../../app/globals.css";
-import { IntlProvider } from "next-intl";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { Navigation } from "@/components";
 
-export const metadata = {
-  title: "App Tek",
-  description: "Web services for customers in Saudi Arabia",
-};
+import "../globals.css";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  params: { locale: string };
-}
-
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
-}: RootLayoutProps) {
-  // Load messages for the current locale dynamically
-  const messages = (await import(`@/locales/${params.locale}.json`)).default;
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   // Determine text direction based on locale
-  const dir = params.locale === "ar" ? "rtl" : "ltr";
+  const isRTL = ["ar"].includes(locale); // Add other RTL languages as needed
+  const direction = isRTL ? "rtl" : "ltr";
+
+  const messages = await getMessages({ locale });
 
   return (
-    <html lang={params.locale} dir={dir}>
-      <body>
-        <IntlProvider locale={params.locale} messages={messages}>
-          {children}
-        </IntlProvider>
+    <html lang={locale} dir={direction}>
+      <head>
+        <link rel="icon" href="/assets/svgs/logo.svg" type="image/svg+xml" />
+      </head>
+      <body className={direction}>
+        {/* This is the main content of the page */}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navigation />
+          <main className={direction}>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
