@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const base =
-    "font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer mx-2";
 
   const variants: Record<string, string> = {
     primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",

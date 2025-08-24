@@ -1,10 +1,23 @@
 {
   "navbar": {
-    "welcome": "Welcome to App Tek",
-    "services": "Our Services",
-    "contact": "Contact Us",
+    "brand": "App Tek",
+    "home": "Home",
+    "services": "Services",
     "about": "About Us",
-    "get_quote": "Get Quote",
-    "brand": "App Tek"
+    "contact": "Contact",
+    "contact_cta": "Contact Us"
+  },
+  "hero": {
+    "title": "Trusted Tech Services for Your Business",
+    "subtitle": "We provide application and website, and tech services for businesses — secure, reliable, and professional.",
+    "secure": "Secure Payments",
+    "mobile_apps": "Mobile App Development",
+    "web_services": "Web r& Tech Services",
+    "trusted": "Trusted & Reliable",
+    "cta": "Start a Secure Project",
+    "desktop_view": "Desktop Services",
+    "desktop_text": "Professional website or application solutions for your business operations.",
+    "mobile_view": "Mobile Services",
+    "mobile_text": "Custom mobile apps to engage your customers anywhere."
   }
 }

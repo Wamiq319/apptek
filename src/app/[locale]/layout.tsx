@@ -3,8 +3,28 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Navigation } from "@/components";
+import { Metadata } from "next";
 
 import "../globals.css";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title:
+      locale === "ar"
+        ? "آب تك - خدمات التطوير الرقمي"
+        : "App Tek - Digital Development Services",
+    description:
+      locale === "ar"
+        ? "خدمات تطوير الويب والتطبيقات والتصميم الرقمي"
+        : "Web development, mobile apps, and digital design services",
+  };
+}
 
 export default async function LocaleLayout({
   children,
