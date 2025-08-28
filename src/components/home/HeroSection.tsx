@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components";
 import { useTranslations } from "next-intl";
 import {
   Lock,
@@ -21,7 +20,7 @@ import {
   Users,
 } from "lucide-react";
 
-const HeroSection = () => {
+export const HeroSection = () => {
   const floatingIcons = [
     {
       icon: Cloud,
@@ -142,16 +141,16 @@ const HeroSection = () => {
       delay: "1.2s",
     },
   ];
-  const t = useTranslations("hero");
+  const t = useTranslations("homePage.hero");
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero_bg.jpg')" }}
+        style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
       />
-      <div className="absolute inset-0 bg-[#000000c4]" />
+      <div className="absolute inset-0 bg-[#000000e0]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -208,13 +207,13 @@ const HeroSection = () => {
               <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-md p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
                 <Smartphone className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-blue drop-shadow-lg" />
                 <span className="text-blue-100 text-sm sm:text-lg font-medium drop-shadow-lg">
-                  {t("mobile_apps")}
+                  Applications
                 </span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-md p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
                 <Monitor className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-blue drop-shadow-lg" />
                 <span className="text-blue-100 text-sm sm:text-lg font-medium drop-shadow-lg">
-                  {t("web_services")}
+                  Websites
                 </span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-md p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
@@ -331,5 +330,3 @@ const HeroSection = () => {
     </section>
   );
 };
-
-export default HeroSection;

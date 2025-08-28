@@ -12,7 +12,7 @@ export const Navigation = () => {
 
   const pathname = usePathname();
   const currentLocale = (pathname.split("/")[1] || "en") as "en" | "ar";
-  const t = useTranslations("navbar");
+  const t = useTranslations("homePage.navbar");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);

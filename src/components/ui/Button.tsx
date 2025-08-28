@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large";
   children: React.ReactNode;
   className?: string;
-  rounded?: "sm" | "md" | "lg" | "full"; // new prop
+  rounded?: "sm" | "md" | "lg" | "full";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -20,11 +20,11 @@ export const Button: React.FC<ButtonProps> = ({
     "font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer mx-2";
 
   const variants: Record<string, string> = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
+    primary: "bg-[#10b3bc] text-white hover:bg-[#0e9fa7] focus:ring-[#10b3bc]",
     secondary:
       "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-300",
     outline:
-      "bg-transparent text-blue-600 border border-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+      "bg-transparent text-[#10b3bc] border border-[#10b3bc] hover:bg-[#10b3bc]/10 focus:ring-[#10b3bc]",
     green: "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500",
   };
 

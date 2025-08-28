@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { HeroSection } from "@/components/home";
+import { HeroSection, ServicesSection } from "@/components";
 
 export default function HomePage() {
   const t = useTranslations();
@@ -7,6 +7,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <ServicesSection />
     </div>
   );
 }
