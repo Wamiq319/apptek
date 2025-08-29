@@ -22,6 +22,8 @@
     "serviceSection": {
       "title": "Our Services",
       "subtitle": "We offer a wide range of services to meet your business needs.",
+      "seeMore": "SeeMore",
+      "showLess": "ShowLess",
       "core": {
         "enterprise": {
           "title": "Enterprise Application Development",
